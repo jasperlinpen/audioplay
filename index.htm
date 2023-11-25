@@ -1,0 +1,42 @@
+<html lang="zh-Hant-TW">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title></title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />	
+        <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <script type="text/javascript">
+             function playAudioAtTime(targetTime) {
+                // 獲取音效元素
+                var audio = document.getElementById('myAudio');
+                // 獲取當前時間
+                var currentTime = new Date().getTime();
+                 // 計算距離目標時間還有多少毫秒
+                var timeDifference = targetTime - currentTime;
+                // 使用 setTimeout 在指定時間後播放音效
+                if (timeDifference > 0) {
+                    setTimeout(function () {
+                    audio.play();
+                    }, timeDifference);
+                   } else {
+                    // 如果指定的時間已經過去，立即播放音效
+                   audio.play();
+                 }
+             }
+              // 設定要啟動音效的目標時間，這裡設定為 10 秒後
+               var targetTime = new Date().getTime() + 10000; // 10000 毫秒 = 10 秒
+
+               // 呼叫函式
+              playAudioAtTime(targetTime);
+        </script>
+    </head>
+    <body class="d-flex flex-column h-100">
+     <audio id="myAudio" src="block.mp3"></audio>
+
+    </body>
+</html>
